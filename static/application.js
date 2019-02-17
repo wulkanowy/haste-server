@@ -171,7 +171,7 @@ haste.extensionMap = {
   vala: 'vala', sql: 'sql', sm: 'smalltalk', lisp: 'lisp', ini: 'ini',
   diff: 'diff', bash: 'bash', sh: 'bash', tex: 'tex', erl: 'erlang', hs: 'haskell',
   md: 'markdown', txt: '', coffee: 'coffee', json: 'javascript',
-  swift: 'swift'
+  swift: 'swift', kt: 'kotlin'
 };
 
 // Look up the extension preferred for a type
