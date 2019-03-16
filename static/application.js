@@ -121,12 +121,12 @@ haste.prototype.showMessage = function(msg, cls) {
 
 // Show the light key
 haste.prototype.lightKey = function() {
-  this.configureKey(['new', 'save']);
+  this.configureKey(['new', 'save', 'copy']);
 };
 
 // Show the full key
 haste.prototype.fullKey = function() {
-  this.configureKey(['new', 'duplicate', 'twitter', 'raw']);
+  this.configureKey(['new', 'duplicate', 'copy', 'twitter', 'raw']);
 };
 
 // Set the key up for certain things to be enabled
@@ -306,6 +306,15 @@ haste.prototype.configureButtons = function() {
       action: function() {
         window.location.href = '/raw/' + _this.doc.key;
       }
+    },
+    {
+      $where: $('#box2 .copy'),
+      label: 'Copy',
+      shortcut: function(evt) {
+        return evt.shiftKey && evt.ctrlKey && evt.keyCode == 67;
+      },
+      shortcutDescription: 'control + shift + c',
+      action: function() {}
     },
     {
       $where: $('#box2 .twitter'),
