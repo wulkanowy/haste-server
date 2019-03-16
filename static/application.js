@@ -121,12 +121,12 @@ haste.prototype.showMessage = function(msg, cls) {
 
 // Show the light key
 haste.prototype.lightKey = function() {
-  this.configureKey(['new', 'save', 'copy']);
+  this.configureKey(['new', 'save']);
 };
 
 // Show the full key
 haste.prototype.fullKey = function() {
-  this.configureKey(['new', 'duplicate', 'copy', 'twitter', 'raw']);
+  this.configureKey(['new', 'duplicate', 'raw', 'copy', 'twitter']);
 };
 
 // Set the key up for certain things to be enabled
@@ -314,7 +314,17 @@ haste.prototype.configureButtons = function() {
         return evt.shiftKey && evt.ctrlKey && evt.keyCode == 67;
       },
       shortcutDescription: 'control + shift + c',
-      action: function() {}
+      action: function() {
+        var textarea = document.createElement('textarea');
+        textarea.value = $('code').text();
+        textarea.setAttribute('readonly', '');
+        textarea.style.position = 'absolute';
+        textarea.style.left = '-9999px';
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+      }
     },
     {
       $where: $('#box2 .twitter'),
